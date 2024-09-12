@@ -1,0 +1,20 @@
+{% extends 'todoapp/home.html'%}
+{% block content %}
+<div class="container w-50 text-center">
+    <form action="" method="POST">
+    <h2 class="btn btn-lg btn-primary w-50">Login</h2>
+        {% csrf_token %}
+        <div  class="mb-3 mt-3"> 
+            <label claas="form-label" for="username">UserName</label>
+            <input class="form-data" type="text" name="username" id="username">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+        </div>
+        <button class="btn btn-outline btn-primary" type="submit">Submit</button>
+    </form>
+    <span>Forgot password?</span>
+</div>
+{% endblock %}

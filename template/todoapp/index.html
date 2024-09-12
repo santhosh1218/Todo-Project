@@ -1,0 +1,44 @@
+{% extends 'todoapp/home.html' %}
+{% block content %}
+    <div class="container">
+        {% if task %}
+        <h2 class="h2 text-center text-primary">Hello! {{user}} </h2>
+        <h5 class="text-center text-primary"> Assigned Taskes are..</h5>
+        {% endif %}
+        <table class="table w-125">     
+            <thead>
+                <tr class="bg-primary">
+                    <td>Task Id</td>
+                    <td>Username</td>
+                    <td>Tittle</td>
+                    <td>Description</td>
+                    <td>Priority</td>
+                    <td>Modify</td>
+                    <td>Created Date</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in task %}
+                {% if not task.completed %}
+                
+                <tr><td>{{task.id}}</td>
+                    <td>{{task.user}}</td>
+                    <td>{{task.title}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.priority}}</td>
+                    <td><a href="{%url 'todoapp:delete' task.id %}">Delete</a>     
+                        <a href="{%url 'todoapp:update' task.id %}">Update</a> 
+                    </td>
+                    
+                    <td>{{task.create_date}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                
+            </tbody>
+           
+        </table>
+       
+    </div>
+{% endblock %}

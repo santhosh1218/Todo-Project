@@ -1,0 +1,22 @@
+{% extends 'todoapp/home.html'%}
+{% block content %}
+<div class="container mt-3 w-50 text-center">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2 class="bg-primary text-white">Signup</h2>
+        <div class="container mt-3">
+            <table>
+                {% for form in form %}
+                <tr><td>{{form.label}}</td>
+                    <td>{{form}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        
+        <input class="btn btn-primary mt-4" type="submit" value="SignUp">
+    </form>
+
+</div>
+{% endblock %}

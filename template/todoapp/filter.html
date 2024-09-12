@@ -1,0 +1,46 @@
+{% extends 'todoapp/home.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="col-md-5 mx-auto">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label class="form-label text-primary" for=""> Enter the task Id </label>
+        <input class="form-control border" type="search"  name="taskid" id="example-search-input"><br>
+        <input type="submit" value="Search">
+    </form>
+    </div>
+    {%for message in messages %}
+    {% if message %}
+    <h1>{{message}}</h1>
+    {% endif %}
+    {% endfor %}
+   
+    <table class="table ms-2">
+           
+        <thead>
+            <tr>
+                <td>task id</td>
+                <td>username</td>
+                <td>tittle</td>
+                <td>description</td>
+                <td>priority</td>
+                <td>completed</td>
+                <td>created date</td>
+            </tr>
+        </thead>
+        <tbody>            
+            <tr><td>{{task.id}}</td>
+                <td>{{task.user}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.priority}}</td>
+                <td>{{task.completed}}</td>
+                <td>{{task.create_date}}</td>
+            </tr>        
+        </tbody>
+       
+    </table>
+
+</div>
+</div>
+{% endblock %}

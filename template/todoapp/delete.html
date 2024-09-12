@@ -1,0 +1,11 @@
+{% extends 'todoapp/home.html'%}
+{% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label class="form-label" for="id">enter the task id</label>
+        <input class="form-control" type="search" name="id" id="id">
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+</div>
+{% endblock %}

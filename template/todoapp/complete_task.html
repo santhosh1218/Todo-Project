@@ -1,0 +1,37 @@
+{% extends 'todoapp/home.html'%}
+{% block content %}
+<div class="container w-75">
+    <h2 class="text-center bg-primary text-light">Completed Tasks</h2>
+    <table class="table">
+       
+        <thead>
+            <tr>
+                <td>Task id</td>
+                <td>Username</td>
+                <td>Tittle</td>
+                <td>Description</td>
+                <td>Priority</td>
+                <td>Completed</td>
+                <td>Created Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in task %}
+            {% if task.completed %}
+            <tr><td>{{task.id}}</td>
+                <td>{{task.user}}</td>
+                <td>{{task.tittle}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.priority}}</td>
+                <td class="bg-success">{{task.completed}}</td>
+                <td>{{task.create_date}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            
+        </tbody>
+       
+    </table>
+   
+</div>
+{% endblock %}
